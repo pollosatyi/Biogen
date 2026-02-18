@@ -10,23 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="590ddfb8-f7a5-4643-a935-307b9b7e3ea4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Biogen/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Biogen/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Biogen.BLL.Logic/ImageForDetectionLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Biogen.BLL.Logic/ImageForDetectionLogic.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Biogen.BLL.LogicExtention/IImageDetectionOutcomeLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Biogen.BLL.LogicExtention/IImageDetectionOutcomeLogic.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Biogen.BLL.LogicExtention/IImageForDetectionLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Biogen.BLL.LogicExtention/IImageForDetectionLogic.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Biogen.Common.Entities/DetectedItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Biogen.Common.Entities/DetectedItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Biogen.Common.Entities/ImageDecectionOutcomeDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Biogen.Common.Entities/ImageDecectionOutcomeDTO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Biogen.Common.Entities/ImageDetectionOutcome.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Biogen.Common.Entities/ImageDetectionOutcome.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Biogen.Common.Entities/Mapping.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Biogen.Common.Entities/NeuralNetworkApiSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Biogen.Common.Entities/NeuralNetworkApiSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Biogen.DAl.Repository/Biogen.DAl.Repository.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Biogen.DAl.Repository/Biogen.DAl.Repository.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Biogen.DAl.Repository/Context.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Biogen.DAl.Repository/Context.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Biogen.DAl.Repository/Repository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Biogen.DAl.Repository/Repository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Biogen.Dal.Repository.Contracts/IRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Biogen.Dal.Repository.Contracts/IRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Biogen.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Biogen.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Biogen.DAl.Repository/Migrations/20260218191202_InitialCreate.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Biogen.DAl.Repository/Migrations/20260218191202_InitialCreate.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Biogen.DAl.Repository/Migrations/ContextModelSnapshot.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Biogen/Biogen.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Biogen/Biogen.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Biogen/Controllers/PhotoUrlController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Biogen/Controllers/PhotoUrlController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Biogen/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Biogen/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Biogen/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Biogen/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +169,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1771428046263</updated>
-      <workItem from="1771428047923" duration="13868000" />
+      <workItem from="1771428047923" duration="14228000" />
     </task>
     <servers />
   </component>
