@@ -8,6 +8,17 @@
 
     <ItemGroup>
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Biogen.BLL.Logic\Biogen.BLL.Logic.csproj" />
+        <ProjectReference Include="..\Biogen.BLL.LogicExtention\Biogen.BLL.LogicExtention.csproj" />
+        <ProjectReference Include="..\Biogen.Common.Entities\Biogen.Common.Entities.csproj" />
+        <ProjectReference Include="..\Biogen.Infrastructure\Biogen.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

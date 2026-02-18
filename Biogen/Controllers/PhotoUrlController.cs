@@ -1,32 +1,43 @@
+using Biogen.BLL.LogicExtention;
+using Biogen.Common.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Biogen.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class WeatherForecastController : ControllerBase
+public class PhotoUrlController : ControllerBase
 {
-    private static readonly string[] Summaries = new[]
-    {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+    private readonly IHttpClientFactory _httpClientFactory;
+    private readonly ILogger<PhotoUrlController> _logger;
+    private readonly IWebHostEnvironment _env;
+    private readonly IImageForDetectionLogic  _imageForDetectionLogic;
 
-    private readonly ILogger<WeatherForecastController> _logger;
-
-    public WeatherForecastController(ILogger<WeatherForecastController> logger)
+    public PhotoUrlController(
+        IHttpClientFactory httpClientFactory,
+        ILogger<PhotoUrlController> logger,
+        IWebHostEnvironment env,
+        IImageForDetectionLogic imageForDetectionLogic)
     {
+        _httpClientFactory = httpClientFactory;
         _logger = logger;
+        _env = env;
+        _imageForDetectionLogic = imageForDetectionLogic;
     }
 
-    [HttpGet(Name = "GetWeatherForecast")]
-    public IEnumerable<WeatherForecast> Get()
+    [HttpPost]
+    public async Task<ImageDecectionOutcomeDTO?> Post(string url)
     {
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+        var imageDecectionOutcomeDto=  await _imageForDetectionLogic.CreateImageModelForDetection(url);
+        
+        return imageDecectionOutcomeDto; 
+    }
+    
+
+    [HttpGet]
+    public (int, string[]) GetImageUrl()
+    {
+        return (1, new string[] { });
     }
 }
+
