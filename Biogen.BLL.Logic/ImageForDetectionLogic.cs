@@ -32,7 +32,7 @@ public class ImageForDetectionLogic : IImageForDetectionLogic
         _logger = logger;
     }
 
-    public async Task<ImageDecectionOutcomeDTO?> CreateImageModelForDetection(string url)
+    public async Task<ImageDecectionOutcomeDTOPost?> CreateImageModelForDetection(string url)
     {
         ImageModelForDetection imageModel;
         try
@@ -70,7 +70,7 @@ public class ImageForDetectionLogic : IImageForDetectionLogic
 
         if (IsSaveImage)
         {
-            return _mapper.Map<ImageDecectionOutcomeDTO>(imageDetectionOutcome);
+            return _mapper.Map<ImageDecectionOutcomeDTOPost>(imageDetectionOutcome);
         }
         return null;
         
@@ -101,6 +101,35 @@ public class ImageForDetectionLogic : IImageForDetectionLogic
         imageModel.ImageData = await GetByteOfImage(url);
         return imageModel;
     }
+
+    public async Task<ImageDecectionOutcomeDTOUpdate?> RefineMaterialsBySubjects(int id, string[] subjects)
+    {
+        var outcome = await _repository.GetDetectionOutcomeById(id);
+        if (outcome == null) return null;
+
+        var imageBytes = await GetByteOfImage(outcome.OriginalUrl);
+
+        var prompt = BuildSubjectPrompt(subjects);
+        var refinedOutcome = await _neuralNetworkClient.DetectImageContentAsync(imageBytes, prompt);
+
+        foreach (var refinedItem in refinedOutcome.DetectedItems)
+        {
+            var existing = outcome.DetectedItems
+                .FirstOrDefault(d => d.Name.Equals(refinedItem.Name, StringComparison.OrdinalIgnoreCase));
+            if (existing != null)
+                existing.materials = refinedItem.materials;
+        }
+
+        await _repository.UpdateDetectionOutcome(outcome);
+
+        return _mapper.Map<ImageDecectionOutcomeDTOUpdate>(outcome);
+    }
+
+    private string BuildSubjectPrompt(string[] subjects) =>
+        $"Для следующих предметов на изображении: {string.Join(", ", subjects)} — " +
+        "укажи из чего они сделаны. " +
+        "Верни ответ строго в формате JSON без пояснений: " +
+        "{\"DetectedItems\":[{\"Name\":\"название объекта\",\"materials\":[\"материал1\",\"материал2\"]}]}";
 
     private async Task<byte[]> GetByteOfImage(string url)
     {

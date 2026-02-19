@@ -1,6 +1,6 @@
 namespace Biogen.Common.Entities;
 
-public class ImageDecectionOutcomeDTO
+public class ImageDecectionOutcomeDTOPost
 {
     public int Id { get; set; }
     

@@ -1,5 +1,6 @@
 using Biogen.Common.Entities;
 using Biogen.Dal.Repository.Contracts;
+using Microsoft.EntityFrameworkCore;
 
 namespace Biogen.DAl.Repository;
 
@@ -25,7 +26,17 @@ public class Repository : IRepository
             Console.WriteLine(ex.Message);
             throw;
         }
+    }
 
-        
+    public async Task<ImageDetectionOutcome?> GetDetectionOutcomeById(int id)
+        => await _context.ImageDetectionOutcomes
+            .Include(o => o.DetectedItems)
+            .FirstOrDefaultAsync(o => o.Id == id);
+
+    public async Task<bool> UpdateDetectionOutcome(ImageDetectionOutcome outcome)
+    {
+        _context.ImageDetectionOutcomes.Update(outcome);
+        await _context.SaveChangesAsync();
+        return true;
     }
 }

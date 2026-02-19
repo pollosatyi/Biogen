@@ -4,6 +4,7 @@ namespace Biogen.BLL.LogicExtention;
 
 public interface IImageForDetectionLogic
 {
-    Task<ImageDecectionOutcomeDTO?> CreateImageModelForDetection(string url);
-    Task<ImageDetectionOutcome> CreateImageDetectionOutcome(ImageModelForDetection  imageModelForDetection);
+    Task<ImageDecectionOutcomeDTOPost?> CreateImageModelForDetection(string url);
+    Task<ImageDetectionOutcome> CreateImageDetectionOutcome(ImageModelForDetection imageModelForDetection);
+    Task<ImageDecectionOutcomeDTOUpdate?> RefineMaterialsBySubjects(int id, string[] subjects);
 }

@@ -26,7 +26,7 @@ public class PhotoUrlController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ImageDecectionOutcomeDTO?> Post(string url)
+    public async Task<ImageDecectionOutcomeDTOPost?> Post(string url)
     {
         var imageDecectionOutcomeDto=  await _imageForDetectionLogic.CreateImageModelForDetection(url);
         
@@ -34,10 +34,10 @@ public class PhotoUrlController : ControllerBase
     }
     
 
-    [HttpGet]
-    public (int, string[]) GetImageUrl()
+    [HttpPut("{id}")]
+    public async Task<ImageDecectionOutcomeDTOUpdate?> Update(int id, [FromBody] string[] subjects)
     {
-        return (1, new string[] { });
+        return await _imageForDetectionLogic.RefineMaterialsBySubjects(id, subjects);
     }
 }
 

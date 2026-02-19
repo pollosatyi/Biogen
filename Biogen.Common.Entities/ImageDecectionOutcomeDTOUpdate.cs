@@ -1,6 +1,6 @@
 namespace Biogen.Common.Entities;
 
-public class ImageDecectionOutcomeDTOGet
+public class ImageDecectionOutcomeDTOUpdate
 {
-    public List<DetectedItem> DetectedItems { get; set; } = new List<DetectedItem>();
+    public List<DetectedItemDTO> DetectedItems { get; set; } = new List<DetectedItemDTO>();
 }

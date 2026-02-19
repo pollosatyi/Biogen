@@ -7,6 +7,8 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
-        CreateMap<ImageDetectionOutcome, ImageDecectionOutcomeDTO>();
+        CreateMap<ImageDetectionOutcome, ImageDecectionOutcomeDTOPost>();
+        CreateMap<DetectedItem, DetectedItemDTO>();
+        CreateMap<ImageDetectionOutcome, ImageDecectionOutcomeDTOUpdate>();
     }
 }
